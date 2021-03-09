@@ -1,24 +1,24 @@
 package org.pixel.springsandbox.beans;
 
 public class GameConsole {
-    private Game game;
+    private AbstractGame game;
 
     public GameConsole() {
     }
 
-    public GameConsole(Game game) {
+    public GameConsole(AbstractGame game) {
         this.game = game;
     }
 
     public void playGame(){
-
+        game.work();
     }
 
-    public Game getGame() {
+    public AbstractGame getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
+    public void setGame(AbstractGame game) {
         this.game = game;
     }
 }
