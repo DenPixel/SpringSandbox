@@ -1,7 +1,7 @@
 package org.pixel.springsandbox.beans;
 
 public class RPGGame extends AbstractGame{
-    
+
     public RPGGame(String name) {
         super(name);
     }
