@@ -7,5 +7,14 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <bean id="game"
+          class="org.pixel.springsandbox.beans.HorrorGame">
+        <constructor-arg value="Outlast"/>
+    </bean>
+
+    <bean id="gameConsole"
+          class="org.pixel.springsandbox.beans.GameConsole">
+        <constructor-arg ref="game"/>
+    </bean>
 
 </beans>
