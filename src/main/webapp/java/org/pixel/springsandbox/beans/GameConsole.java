@@ -3,15 +3,14 @@ package org.pixel.springsandbox.beans;
 public class GameConsole {
     private AbstractGame game;
 
-    public GameConsole() {
-    }
+    public GameConsole() {}
 
     public GameConsole(AbstractGame game) {
         this.game = game;
     }
 
     public void playGame(){
-        game.work();
+        game.apply();
     }
 
     public AbstractGame getGame() {

@@ -9,12 +9,12 @@
 
     <bean id="game"
           class="org.pixel.springsandbox.beans.HorrorGame">
-        <constructor-arg value="Outlast"/>
+        <property name="name" value="outlast"/>
     </bean>
 
     <bean id="gameConsole"
           class="org.pixel.springsandbox.beans.GameConsole">
-        <constructor-arg ref="game"/>
+        <property name="game" ref="game"/>
     </bean>
 
 </beans>
