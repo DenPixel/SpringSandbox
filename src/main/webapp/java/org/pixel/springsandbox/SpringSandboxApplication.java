@@ -9,9 +9,6 @@ public class SpringSandboxApplication {
                 "applicationContext.xml"
         );
 
-        GameConsole gameConsole = context.getBean("gameConsole", GameConsole.class);
-        gameConsole.playGame();
-
         context.close();
     }
 }
