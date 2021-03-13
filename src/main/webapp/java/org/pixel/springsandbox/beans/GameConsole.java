@@ -10,8 +10,8 @@ public class GameConsole {
     public GameConsole() {
     }
 
-    public GameConsole(List<AbstractGame> games) {
-        this.games = games;
+    public static GameConsole getInstance() {
+        return new GameConsole();
     }
 
     public void playGames() {

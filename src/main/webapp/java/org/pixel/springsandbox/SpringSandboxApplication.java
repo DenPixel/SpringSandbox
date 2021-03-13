@@ -1,6 +1,5 @@
 package org.pixel.springsandbox;
 
-import org.pixel.springsandbox.beans.GameConsole;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringSandboxApplication {

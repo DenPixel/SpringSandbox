@@ -2,11 +2,11 @@ package org.pixel.springsandbox.beans;
 
 public class ActionGame extends AbstractGame {
 
-    public ActionGame() {
+    private ActionGame() {
     }
 
-    public ActionGame(String name) {
-        super(name);
+    public static ActionGame getInstance() {
+        return new ActionGame();
     }
 
     @Override

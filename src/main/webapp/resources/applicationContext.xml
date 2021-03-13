@@ -10,25 +10,29 @@
     <context:property-placeholder location="classpath:gameConsole.properties"/>
 
     <bean id="horrorGame"
-          class="org.pixel.springsandbox.beans.HorrorGame">
+          class="org.pixel.springsandbox.beans.HorrorGame"
+          factory-method="getInstance">
         <property name="name" value="outlast"/>
     </bean>
 
     <bean id="rpgGame"
           class="org.pixel.springsandbox.beans.RPGGame"
           init-method="init"
-          destroy-method="destroy">
+          destroy-method="destroy"
+          factory-method="getInstance">
         <property name="name" value="skyrim"/>
     </bean>
 
     <bean id="actionGame"
-          class="org.pixel.springsandbox.beans.ActionGame">
+          class="org.pixel.springsandbox.beans.ActionGame"
+          factory-method="getInstance">
         <property name="name" value="call of duty"/>
     </bean>
 
     <bean id="gameConsole"
           class="org.pixel.springsandbox.beans.GameConsole"
-          scope="prototype">
+          scope="prototype"
+          factory-method="getInstance">
         <property name="games">
             <list>
                 <ref bean="horrorGame"/>
