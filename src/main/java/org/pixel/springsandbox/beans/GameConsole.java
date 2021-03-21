@@ -26,7 +26,7 @@ public class GameConsole {
 
     public void playGame(Category category) {
         Game gamesCategory = games.stream()
-                .filter(g -> g.getClass()  == category.getClassCategory())
+                .filter(g -> g.getClass() == category.getClassCategory())
                 .findFirst()
                 .orElseThrow();
         String[] games = gamesCategory.getGames();
