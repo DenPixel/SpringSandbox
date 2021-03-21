@@ -1,6 +1,5 @@
 package org.pixel.springsandbox;
 
-import org.pixel.springsandbox.beans.GameConsole;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringSandboxApplication {
@@ -8,9 +7,6 @@ public class SpringSandboxApplication {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-
-        GameConsole gameConsole = context.getBean("gameConsole", GameConsole.class);
-        gameConsole.playGame();
 
         context.close();
     }

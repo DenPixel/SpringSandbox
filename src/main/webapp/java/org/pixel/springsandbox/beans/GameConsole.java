@@ -1,27 +1,29 @@
 package org.pixel.springsandbox.beans;
 
+import java.util.List;
+
 public class GameConsole {
-    private AbstractGame game;
+    private List<AbstractGame> games;
     private String name;
     private int RAM;
 
     public GameConsole() {
     }
 
-    public GameConsole(AbstractGame game) {
-        this.game = game;
+    public static GameConsole getInstance() {
+        return new GameConsole();
     }
 
-    public void playGame() {
-        game.apply();
+    public void playGames() {
+        games.forEach(AbstractGame::apply);
     }
 
-    public AbstractGame getGame() {
-        return game;
+    public List<AbstractGame> getGames() {
+        return games;
     }
 
-    public void setGame(AbstractGame game) {
-        this.game = game;
+    public void setGames(List<AbstractGame> games) {
+        this.games = games;
     }
 
     public String getName() {

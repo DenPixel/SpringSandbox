@@ -1,12 +1,12 @@
 package org.pixel.springsandbox.beans;
 
-public class HorrorGame extends AbstractGame{
+public class HorrorGame extends AbstractGame {
 
-    public HorrorGame() {
+    private HorrorGame() {
     }
 
-    public HorrorGame(String name) {
-        super(name);
+    public static HorrorGame getInstance() {
+        return new HorrorGame();
     }
 
     @Override

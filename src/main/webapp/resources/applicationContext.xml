@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="game"
-          class="org.pixel.springsandbox.beans.HorrorGame">
+    <context:property-placeholder location="classpath:gameConsole.properties"/>
+
+    <bean id="horrorGame"
+          class="org.pixel.springsandbox.beans.HorrorGame"
+          factory-method="getInstance">
         <property name="name" value="outlast"/>
     </bean>
 
+    <bean id="rpgGame"
+          class="org.pixel.springsandbox.beans.RPGGame"
+          init-method="init"
+          destroy-method="destroy"
+          factory-method="getInstance">
+        <property name="name" value="skyrim"/>
+    </bean>
+
+    <bean id="actionGame"
+          class="org.pixel.springsandbox.beans.ActionGame"
+          factory-method="getInstance">
+        <property name="name" value="call of duty"/>
+    </bean>
+
     <bean id="gameConsole"
-          class="org.pixel.springsandbox.beans.GameConsole">
-        <property name="game" ref="game"/>
-        <property name="name" value="PS4"/>
-        <property name="RAM" value="8"/>
+          class="org.pixel.springsandbox.beans.GameConsole"
+          scope="prototype"
+          factory-method="getInstance">
+        <property name="games">
+            <list>
+                <ref bean="horrorGame"/>
+                <ref bean="rpgGame"/>
+                <ref bean="actionGame"/>
+            </list>
+        </property>
+        <property name="name" value="${gameConsole.name}"/>
+        <property name="RAM" value="${gameConsole.RAM}"/>
     </bean>
 
 </beans>
