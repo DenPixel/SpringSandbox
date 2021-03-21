@@ -1,5 +1,6 @@
 package org.pixel.springsandbox;
 
+import org.pixel.springsandbox.beans.GameConsole;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringSandboxApplication {
@@ -8,7 +9,10 @@ public class SpringSandboxApplication {
                 "applicationContext.xml"
         );
 
+        GameConsole gameConsole = context.getBean("gameConsole", GameConsole.class);
 
+        System.out.println("gameConsole.getName() = " + gameConsole.getName());
+        System.out.println("gameConsole.getRAM() = " + gameConsole.getRAM());
 
         context.close();
     }
