@@ -3,13 +3,13 @@ package org.pixel.springsandbox.beans;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HorrorGame implements Game {
+public class ActionGame implements Game {
 
-    public HorrorGame() {
+    public ActionGame() {
     }
 
     @Override
     public String[] getGames() {
-        return new String[]{"outlast", "don't knock twice", "fear"};
+        return new String[]{"call of duty", "serious sam", "medal of honor"};
     }
 }

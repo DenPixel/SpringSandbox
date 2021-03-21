@@ -1,19 +1,20 @@
 package org.pixel.springsandbox;
 
+import org.pixel.springsandbox.beans.Category;
 import org.pixel.springsandbox.beans.GameConsole;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.pixel.springsandbox.config.SpringConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SpringSandboxApplication {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml"
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(
+                SpringConfig.class
         );
 
-        GameConsole gameConsole = context.getBean("gameConsole", GameConsole.class);
+        GameConsole gameConsole = ctx.getBean(GameConsole.class);
 
-        System.out.println("gameConsole.getName() = " + gameConsole.getName());
-        System.out.println("gameConsole.getRAM() = " + gameConsole.getRAM());
+        gameConsole.playGame(Category.ACTION);
 
-        context.close();
+        ctx.close();
     }
 }
