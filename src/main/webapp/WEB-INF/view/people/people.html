@@ -6,8 +6,15 @@
 </head>
 <body>
 <div th:each="person : ${people}">
-    <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text="${person.getName()}">VALUE</a>
+    <a th:href="@{/people/{id}(id = ${person.getId()})}"
+       th:text="${person.getId()} + ' ' + ${person.getNickname()}">VALUE</a>
 </div>
-<a href="/people/new">Create person</a>
+
+<hr>
+
+<form th:method="GET" action="/people/new">
+    <input type="submit" value="Create person">
+</form>
+
 </body>
 </html>

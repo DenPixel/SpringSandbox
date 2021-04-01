@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
 <h1>Hello</h1>
-<a href="/people">List of people</a>
+<form th:method="GET" th:action="'/people'">
+    <input type="submit" value="List of people">
+</form>
 </body>
 </html>

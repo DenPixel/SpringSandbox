@@ -10,14 +10,14 @@ import java.util.List;
 public class PersonDAO {
 
     private static int COUNT_PEOPLE;
-    private List<Person> people;
+    private final List<Person> people;
 
     {
         people = new ArrayList<>();
 
-        people.add(new Person(++COUNT_PEOPLE, "qwerty"));
-        people.add(new Person(++COUNT_PEOPLE, "asdfgh"));
-        people.add(new Person(++COUNT_PEOPLE, "zxcvbn"));
+        people.add(new Person(++COUNT_PEOPLE, "qwerty", "qw@wq.com"));
+        people.add(new Person(++COUNT_PEOPLE, "asdfgh", "as@sa.com"));
+        people.add(new Person(++COUNT_PEOPLE, "zxcvbn", "zx@xz.com"));
     }
 
     public List<Person> getPeople() {
@@ -38,7 +38,8 @@ public class PersonDAO {
 
     public void update(int id, Person person) {
         Person personForUp = getPerson(id);
-        personForUp.setName(person.getName());
+        personForUp.setEmail(person.getEmail());
+        personForUp.setNickname(person.getNickname());
     }
 
     public void delete(int id) {

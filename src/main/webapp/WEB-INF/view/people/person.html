@@ -5,14 +5,24 @@
     <title>People</title>
 </head>
 <body>
-<p th:text="${person.getId()}">VALUE</p>
-<p th:text="${person.getName()}">VALUE</p>
 
-<a th:href="@{/people/{id}/edit(id = ${person.getId()})}">Edit</a>
-<a href="/people">Back</a>
+<p th:text="'ID: ' + ${person.getId()}">VALUE</p>
+<p th:text="'Nickname: ' + ${person.getNickname()}">VALUE</p>
+<p th:text="'Email: ' + ${person.getEmail()}">VALUE</p>
+
+<hr>
+
+<form th:method="GET" th:action="@{/people/{id}/edit(id = ${person.getId()})}">
+    <input type="submit" value="Edit">
+</form>
+
+<form th:method="GET" action="/people">
+    <input type="submit" value="Back">
+</form>
 
 <form th:method="DELETE" th:action="@{/people/{id}(id = ${person.getId()})}">
     <input type="submit" value="Delete">
 </form>
+
 </body>
 </html>
